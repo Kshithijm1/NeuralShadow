@@ -1,3 +1,8 @@
 2026-01-11 15:15:33.547 | INFO     | core.capture.screen:start:26 - Screen Capture Service Started
 2026-01-11 15:15:34.690 | ERROR    | core.capture.screen:_run_loop:52 - Error in screen capture loop: C:\Program Files\Tesseract-OCR\tesseract.exe is not installed or it's not in your PATH. See README file for more information.
 2026-01-11 15:15:39.728 | INFO     | core.capture.screen:stop:32 - Screen Capture Service Stopped
+2026-01-11 15:57:17.428 | INFO     | core.memory.embeddings:load_model:16 - Loading Embedding Model: all-MiniLM-L6-v2...
+2026-01-11 15:57:45.666 | INFO     | core.memory.embeddings:load_model:19 - Embedding Model Loaded.
+2026-01-11 15:57:45.899 | INFO     | core.memory.db:__init__:10 - Initializing VectorDB at C:\Users\kshit\Desktop\WeeklyProjects\NeuralShadow\data\chroma_db
+2026-01-11 15:57:46.324 | INFO     | core.memory.db:__init__:16 - Connected to collection: neural_shadow_memories
+2026-01-11 15:57:46.462 | DEBUG    | core.memory.db:add:37 - Indexed document: 63ffd91a-37d1-4557-97cc-c4787cd94988 (18 chars)

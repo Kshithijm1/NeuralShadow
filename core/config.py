@@ -20,4 +20,9 @@ AUDIO_BLOCK_SIZE = 2048
 VAD_THRESHOLD = 0.5
 
 # OCR Settings
-TESSERACT_CMD = r'C:\Program Files\Tesseract-OCR\tesseract.exe'  # Update if needed
+TESSERACT_CMD = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+# Memory Settings
+DB_PATH = DATA_DIR / "chroma_db"
+COLLECTION_NAME = "neural_shadow_memories"
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"
