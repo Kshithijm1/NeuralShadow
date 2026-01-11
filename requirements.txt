@@ -1,0 +1,9 @@
+mss==9.0.1
+Pillow==10.2.0
+pytesseract==0.3.10
+faster-whisper==0.10.0
+soundcard==0.4.3
+numpy==1.26.3
+loguru==0.7.2
+python-dotenv==1.0.0
+colorama==0.4.6
