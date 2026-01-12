@@ -54,6 +54,20 @@ The system is built on a modular "Cortex" architecture:
     npm run dev --prefix web  # Terminal 2
     ```
 
+## 💡 Usage Examples
+Once the system is running, open `http://localhost:3000` and press `Cmd+K` (or `Ctrl+K`) to open the search bar.
+
+### 1. Developer Productivity
+> *"What flags did I use for the docker build command yesterday?"*
+> *"Show me the python script I was editing an hour ago."*
+
+### 2. Meeting Recall
+> *"What action items were assigned to me during the sync?"*
+> *"Summarize the feedback from the design review."*
+
+### 3. Digital Wellbeing
+> *"What website was I looking at before I got distracted?"*
+
 ## 🔒 Security
 Neural Shadow is designed with privacy as the #1 priority.
 - **Zero-Cloud**: No data is sent to OpenAI or any cloud provider.

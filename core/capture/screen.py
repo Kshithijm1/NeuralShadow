@@ -13,12 +13,20 @@ from ..security.encryption import SecurityManager
 # Configure Tesseract
 pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
 
+from pathlib import Path
+
 class ScreenCapturer:
     def __init__(self):
         self._stop_event = Event()
         self.last_image = None
         self.output_dir = DATA_DIR / "screen"
         self.output_dir.mkdir(parents=True, exist_ok=True)
+        
+        if Path(TESSERACT_CMD).exists():
+            self.ocr_available = True
+        else:
+            log.warning(f"Tesseract not found at {TESSERACT_CMD}. OCR disabled.")
+            self.ocr_available = False
 
     def start(self):
         """Starts the screen capture thread."""
@@ -81,13 +89,16 @@ class ScreenCapturer:
             SecurityManager().encrypt_file(filename)
         
         # OCR
-        text = pytesseract.image_to_string(img)
-        cleaned_text = TextCleaner.clean_text(text)
-        cleaned_text = TextCleaner.redact_pii(cleaned_text)
-        
-        if cleaned_text:
-            log.debug(f"Captured Text ({len(cleaned_text)} chars): {cleaned_text[:50]}...")
-            # TODO: Send to Vector DB Queue
-            # For now, save to text file
-            with open(self.output_dir / f"{timestamp}.txt", "w", encoding="utf-8") as f:
-                f.write(cleaned_text)
+        if self.ocr_available:
+            try:
+                text = pytesseract.image_to_string(img)
+                cleaned_text = TextCleaner.clean_text(text)
+                cleaned_text = TextCleaner.redact_pii(cleaned_text)
+                
+                if cleaned_text:
+                    log.debug(f"Captured Text ({len(cleaned_text)} chars): {cleaned_text[:50]}...")
+                    # For now, save to text file
+                    with open(self.output_dir / f"{timestamp}.txt", "w", encoding="utf-8") as f:
+                        f.write(cleaned_text)
+            except Exception as e:
+                log.error(f"OCR Failed: {e}")
