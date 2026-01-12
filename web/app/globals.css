@@ -1,0 +1,98 @@
+@import "tailwindcss";
+
+:root {
+  --background: #050505;
+  --foreground: #ededed;
+  
+  --primary: #00ff9d; /* Neon Green */
+  --primary-foreground: #000000;
+  
+  --secondary: #1a1a1a;
+  --secondary-foreground: #a0a0a0;
+  
+  --accent: #00d9ff; /* Cyan */
+  --accent-foreground: #000000;
+  
+  --border: #262626;
+  --input: #262626;
+  --ring: #00ff9d;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden; /* App feel */
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* CMDK Styling */
+[cmdk-root] {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 640px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 16px 70px rgba(0, 255, 157, 0.2); /* Neon Glow */
+  overflow: hidden;
+  z-index: 50;
+  opacity: 0;
+  scale: 0.95;
+  transition: all 0.1s ease;
+  pointer-events: none;
+}
+
+[cmdk-root][data-open="true"] {
+  opacity: 1;
+  scale: 1;
+  pointer-events: auto;
+}
+
+[cmdk-input] {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--border);
+  padding: 16px;
+  font-size: 18px;
+  color: var(--foreground);
+  outline: none;
+}
+
+[cmdk-list] {
+  height: 300px;
+  overflow-y: auto;
+  padding: 8px;
+}
+
+[cmdk-item] {
+  padding: 12px;
+  border-radius: 6px;
+  color: var(--secondary-foreground);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.1s;
+}
+
+[cmdk-item][data-selected="true"] {
+  background: rgba(0, 255, 157, 0.1);
+  color: var(--primary);
+}
+
+[cmdk-empty] {
+  padding: 32px;
+  text-align: center;
+  color: var(--secondary-foreground);
+}
