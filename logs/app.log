@@ -6,3 +6,13 @@
 2026-01-11 15:57:45.899 | INFO     | core.memory.db:__init__:10 - Initializing VectorDB at C:\Users\kshit\Desktop\WeeklyProjects\NeuralShadow\data\chroma_db
 2026-01-11 15:57:46.324 | INFO     | core.memory.db:__init__:16 - Connected to collection: neural_shadow_memories
 2026-01-11 15:57:46.462 | DEBUG    | core.memory.db:add:37 - Indexed document: 63ffd91a-37d1-4557-97cc-c4787cd94988 (18 chars)
+2026-01-11 16:31:34.533 | INFO     | core.memory.db:__init__:10 - Initializing VectorDB at C:\Users\kshit\Desktop\WeeklyProjects\NeuralShadow\data\chroma_db
+2026-01-11 16:31:34.801 | INFO     | core.memory.db:__init__:16 - Connected to collection: neural_shadow_memories
+2026-01-11 16:31:34.822 | INFO     | core.memory.db:__init__:10 - Initializing VectorDB at C:\Users\kshit\Desktop\WeeklyProjects\NeuralShadow\data\chroma_db
+2026-01-11 16:31:34.882 | INFO     | core.memory.db:__init__:16 - Connected to collection: neural_shadow_memories
+2026-01-11 16:31:34.882 | INFO     | core.memory.embeddings:load_model:16 - Loading Embedding Model: all-MiniLM-L6-v2...
+2026-01-11 16:31:44.350 | INFO     | core.memory.embeddings:load_model:19 - Embedding Model Loaded.
+2026-01-11 16:31:44.737 | DEBUG    | core.memory.db:add:37 - Indexed document: 4041de35-1613-4535-9c83-5aef9cf827f2 (22 chars)
+2026-01-11 16:31:44.794 | INFO     | core.api.routes:search:15 - API Search Request: What is the secret code?
+2026-01-11 16:31:44.883 | INFO     | core.brain.llm_client:generate_answer:40 - Sending prompt to Ollama (mistral)...
+2026-01-11 16:31:48.921 | ERROR    | core.brain.llm_client:generate_answer:47 - Could not connect to Ollama. Is it running?

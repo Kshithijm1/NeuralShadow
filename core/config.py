@@ -26,3 +26,7 @@ TESSERACT_CMD = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 DB_PATH = DATA_DIR / "chroma_db"
 COLLECTION_NAME = "neural_shadow_memories"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+
+# LLM Settings
+OLLAMA_URL = "http://localhost:11434/api/generate"
+LLM_MODEL = "mistral" # Ensure you have pulled this model: `ollama pull mistral`

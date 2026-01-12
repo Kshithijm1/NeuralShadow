@@ -13,25 +13,33 @@ def main():
     audio_service = AudioCapturer()
     ingest_service = IngestorService()
     
+import uvicorn
+from core.api.app import app
+
+def main():
+    log.info("=== Neural Shadow v0.1 Starting ===")
+    
+    screen_service = ScreenCapturer()
+    audio_service = AudioCapturer()
+    ingest_service = IngestorService()
+    
     try:
-        # Start Memory Ingestion first
+        # Start Background Services
         ingest_service.start()
-        
-        # Start Senses
         screen_service.start()
         audio_service.start()
         
-        while True:
-            # Main thread keep-alive
-            time.sleep(1)
-            
+        # Start API Server (Blocking)
+        log.info("Starting API Server on http://localhost:8000")
+        uvicorn.run(app, host="0.0.0.0", port=8000)
+        
     except KeyboardInterrupt:
         log.info("Stopping services...")
+    finally:
         screen_service.stop()
         audio_service.stop()
         ingest_service.stop()
         log.info("Services stopped. Exiting.")
-        sys.exit(0)
 
 if __name__ == "__main__":
     main()
