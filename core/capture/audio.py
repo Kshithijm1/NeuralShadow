@@ -2,9 +2,10 @@ import time
 import threading
 from threading import Thread, Event
 from pathlib import Path
-from ..config import AUDIO_SAMPLE_RATE, DATA_DIR
+from ..config import AUDIO_SAMPLE_RATE, DATA_DIR, ENABLE_ENCRYPTION
 from ..utils import log
 from ..processing.text_cleaner import TextCleaner
+from ..security.encryption import SecurityManager
 
 try:
     import soundcard as sc
@@ -90,6 +91,9 @@ class AudioCapturer:
         
         # Save WAV
         sf.write(filename, audio_data, AUDIO_SAMPLE_RATE)
+        
+        if ENABLE_ENCRYPTION:
+            SecurityManager().encrypt_file(filename)
         
         try:
             # Transcribe

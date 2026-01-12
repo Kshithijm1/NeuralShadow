@@ -29,4 +29,7 @@ EMBEDDING_MODEL = "all-MiniLM-L6-v2"
 
 # LLM Settings
 OLLAMA_URL = "http://localhost:11434/api/generate"
-LLM_MODEL = "mistral" # Ensure you have pulled this model: `ollama pull mistral`
+LLM_MODEL = "mistral"
+
+# Security
+ENABLE_ENCRYPTION = True

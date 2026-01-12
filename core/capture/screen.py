@@ -5,9 +5,10 @@ import pytesseract
 import numpy as np
 from PIL import Image
 from threading import Thread, Event
-from ..config import SCREEN_CAPTURE_INTERVAL, SCREEN_DIFF_THRESHOLD, TESSERACT_CMD, DATA_DIR
+from ..config import SCREEN_CAPTURE_INTERVAL, SCREEN_DIFF_THRESHOLD, TESSERACT_CMD, DATA_DIR, ENABLE_ENCRYPTION
 from ..utils import log
 from ..processing.text_cleaner import TextCleaner
+from ..security.encryption import SecurityManager
 
 # Configure Tesseract
 pytesseract.pytesseract.tesseract_cmd = TESSERACT_CMD
@@ -73,9 +74,11 @@ class ScreenCapturer:
         timestamp = int(time.time())
         filename = self.output_dir / f"{timestamp}.png"
         
-        # Save minimal reference (optional, maybe we just save OCR)
-        # For this system, we want to save it so we can show it later.
+        # Save minimal reference
         img.save(filename)
+        
+        if ENABLE_ENCRYPTION:
+            SecurityManager().encrypt_file(filename)
         
         # OCR
         text = pytesseract.image_to_string(img)

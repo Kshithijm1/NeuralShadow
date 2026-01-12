@@ -16,3 +16,4 @@
 2026-01-11 16:31:44.794 | INFO     | core.api.routes:search:15 - API Search Request: What is the secret code?
 2026-01-11 16:31:44.883 | INFO     | core.brain.llm_client:generate_answer:40 - Sending prompt to Ollama (mistral)...
 2026-01-11 16:31:48.921 | ERROR    | core.brain.llm_client:generate_answer:47 - Could not connect to Ollama. Is it running?
+2026-01-11 23:34:03.316 | WARNING  | core.security.encryption:_load_or_create_key:26 - New Encryption Key generated at C:\Users\kshit\Desktop\WeeklyProjects\NeuralShadow\data\secret.key. DO NOT LOSE THIS.
